@@ -94,7 +94,9 @@ public class Sim {
         System.out.print(" " + seed);
         System.out.println();
 
-        // ── Initialise data structures ─────────────────────────────────────────
+
+        //creat and initliaze the event list, the car queue, the pump stand,
+        //and the statistics collector.
         eventList = new EventList();
         carQueue  = new CarQueue();
         pumpStand = new PumpStand(numPumps);
@@ -102,24 +104,17 @@ public class Sim {
 
         // ── Schedule initial events ────────────────────────────────────────────
         eventList.insert(new EndOfSimulation(endingTime));  // when to stop
-
         if (reportInterval <= endingTime) {
             eventList.insert(new Report(reportInterval));   // first progress report
         }
 
-        eventList.insert(new Arrival(0));   // first car arrives at t=0
-
+        eventList.insert(new Arrival(0));             // first car arrives at t=0
         // ── Event Driven Loop
-        // Each iteration:
-        //   1. Removes the next (earliest) event from the event list
-        //   2. Advances simulated time to that event's time
-        //   3. Executes the event routine (makeItHappen)
-        //   4. Stops if it was the EndOfSimulation event
         while (true) {
-            Event currentEvent = eventList.takeNextEvent();
-            simulationTime = currentEvent.getTime();
-            currentEvent.makeItHappen();
-            if (currentEvent instanceof EndOfSimulation) {
+            Event currentEvent = eventList.takeNextEvent(); // 1. get next event
+            simulationTime = currentEvent.getTime();        // 2. jump clocks to the event
+            currentEvent.makeItHappen();                    // 3. execute the event
+            if (currentEvent instanceof EndOfSimulation) {  // 4. check if done
                 break;
             }
         }

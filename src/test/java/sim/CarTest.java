@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Random;
 
 /**
- * CarTest: JUnit 5 tests for the Car entity class.
+ * CarTest: 4 tests for Car.java class
  *
  * Tests cover:
  *   - Litres needed stays within valid range (10–60)
