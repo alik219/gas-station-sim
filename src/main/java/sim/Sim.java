@@ -58,29 +58,38 @@ public class Sim {
 
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-        // ── Read configuration ─────────────────────────────────────────────────
-        reportInterval      = Double.parseDouble(in.readLine().trim());
-        double endingTime   = Double.parseDouble(in.readLine().trim());
-        int    numPumps     = Integer.parseInt(in.readLine().trim());
+        // ── Read configuration with prompts ───────────────────────────────────
+        System.out.print("Enter report interval (seconds, e.g. 20000): ");
+        reportInterval = Double.parseDouble(in.readLine().trim());
+
+        System.out.print("Enter ending time (seconds, e.g. 200000): ");
+        double endingTime = Double.parseDouble(in.readLine().trim());
+
+        System.out.print("Enter number of pumps (e.g. 3): ");
+        int numPumps = Integer.parseInt(in.readLine().trim());
 
         System.out.print("This simulation run uses " + numPumps + " pumps ");
-
-        // ── Initialise random number streams ──────────────────────────────────
         System.out.println("and the following random number seeds:");
 
+        // ── Initialise random number streams ──────────────────────────────────
         int seed;
+
+        System.out.print("Enter random seed for arrivals (e.g. 1): ");
         seed = Integer.parseInt(in.readLine().trim());
         arrivalStream = new Random(seed);
         System.out.print(" " + seed);
 
+        System.out.print("\nEnter random seed for litres needed (e.g. 2): ");
         seed = Integer.parseInt(in.readLine().trim());
         litreStream = new Random(seed);
         System.out.print(" " + seed);
 
+        System.out.print("\nEnter random seed for balking (e.g. 3): ");
         seed = Integer.parseInt(in.readLine().trim());
         balkingStream = new Random(seed);
         System.out.print(" " + seed);
 
+        System.out.print("\nEnter random seed for service times (e.g. 4): ");
         seed = Integer.parseInt(in.readLine().trim());
         serviceStream = new Random(seed);
         System.out.print(" " + seed);
