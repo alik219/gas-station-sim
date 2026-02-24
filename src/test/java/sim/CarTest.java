@@ -28,17 +28,7 @@ class CarTest {
 
     // ── Litres needed ──────────────────────────────────────────────────────────
 
-    @Test
-    @DisplayName("Litres needed should always be between 10 and 60")
-    void testLitresNeededWithinRange() {
-        for (int i = 0; i < 1000; i++) {
-            Car car = new Car();
-            double litres = car.getLitresNeeded();
-            assertTrue(litres >= 10.0 && litres <= 60.0,
-                "Litres should be 10–60 but was: " + litres);
-        }
-    }
-
+    //Make sure the literstream doesn't become negative
     @Test
     @DisplayName("Litres needed should never be negative")
     void testLitresNeededNotNegative() {

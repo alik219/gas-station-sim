@@ -39,13 +39,12 @@ public class Sim {
     // ── Customer arrival rate ─────────────────────────────────────────────────
     public static double meanInterarrivalTime = 50.0; // seconds between arrivals
 
-    // ── Random number streams (one per stochastic variable) ───────────────────
+    // ── Random number streams (one per stochastic variable)
     public static Random arrivalStream;  // for inter-arrival times
     public static Random litreStream;    // for litres needed
     public static Random balkingStream;  // for balking decisions
     public static Random serviceStream;  // for service times
 
-    // ── Major data structures ─────────────────────────────────────────────────
     public static EventList  eventList;
     public static CarQueue   carQueue;
     public static PumpStand  pumpStand;
@@ -110,8 +109,7 @@ public class Sim {
 
         eventList.insert(new Arrival(0));   // first car arrives at t=0
 
-        // ── THE CLOCK DRIVER LOOP ──────────────────────────────────────────────
-        // This is the heart of the event-driven simulation.
+        // ── Event Driven Loop
         // Each iteration:
         //   1. Removes the next (earliest) event from the event list
         //   2. Advances simulated time to that event's time

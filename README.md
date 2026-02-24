@@ -30,7 +30,6 @@ gas-station-sim/
     └── test/java/sim/
         ├── CarTest.java             ← JUnit tests for Car
         ├── CarQueueTest.java        ← JUnit tests for CarQueue
-        └── PumpStandTest.java       ← JUnit tests for PumpStand
 ```
 
 ---
@@ -60,6 +59,7 @@ mvn test
 ### Run the Simulation
 ```bash
 mvn exec:java
+
 ```
 
 When prompted, enter the following inputs (one per line):
@@ -123,6 +123,5 @@ mvn test -Dtest=CarTest
 # Run only CarQueueTest
 mvn test -Dtest=CarQueueTest
 
-# Run only PumpStandTest
-mvn test -Dtest=PumpStandTest
-```
+# Run all tests:
+mvn test
