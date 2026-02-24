@@ -3,10 +3,14 @@ package sim;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+/*2 tests for CarQueue.java class
+* these cover inserting and removing a car from the queue.
+*/
+
 class CarQueueTest {
 
     private CarQueue queue;
-    //Sets up simulatiion so the queue is set to 0.
+    //Sets up simulation so the queue is set to 0.
     @BeforeEach
     void setUp() {
         queue = new CarQueue();
@@ -33,8 +37,4 @@ class CarQueueTest {
         assertEquals(0, queue.getQueueSize(),
             "Queue size should be 0 after removing one car");
     }
-
-
-    
-
 }
